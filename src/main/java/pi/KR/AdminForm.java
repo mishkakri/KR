@@ -37,13 +37,13 @@ public class AdminForm extends CalcForm{
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(5,2));
 		add(pane[0]= new JTextField());
-		add(label[0] = new JLabel("Сумма вклада"));
+		add(label[0] = new JLabel("РЎСѓРјРјР° РІРєР»Р°РґР°"));
 		add(pane[1]= new JTextField());
-		add(label[1] = new JLabel("Процент вклада"));
+		add(label[1] = new JLabel("РџСЂРѕС†РµРЅС‚ РІРєР»Р°РґР°"));
 		add(pane[2]= new JTextField());
-		add(label[2] = new JLabel("Срок (год)"));
-		add(kapital = new JCheckBox("Капитализация"));
-		add(btn1= new JButton("Расчитать"));
+		add(label[2] = new JLabel("РЎСЂРѕРє РІРєР»Р°РґР° (Р“РѕРґ)"));
+		add(kapital = new JCheckBox("ГЉГ ГЇГЁГІГ Г«ГЁГ§Г Г¶ГЁГї"));
+		add(btn1= new JButton("ГђГ Г±Г·ГЁГІГ ГІГј"));
 		for (int i=0;i<pane.length;i++) {
 		pane[i].addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
@@ -57,7 +57,7 @@ public class AdminForm extends CalcForm{
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
-					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Г‚ГўГҐГ¤ГҐГ­Г» Г­ГҐГўГҐГ°Г­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГї", "ГЋГёГЁГЎГЄГ ", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 				boolean cap = Boolean.valueOf(kapital.isSelected());
@@ -65,22 +65,22 @@ public class AdminForm extends CalcForm{
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());
 				if (kapital.isSelected()) {
-					JOptionPane.showMessageDialog(null,/*void Расчёта*/1, "Результат", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null,/*void ГђГ Г±Г·ВёГІГ */1, "ГђГҐГ§ГіГ«ГјГІГ ГІ", JOptionPane.PLAIN_MESSAGE);
 				}
-				else JOptionPane.showMessageDialog(null,/*void Расчёта*/1, "Результат", JOptionPane.PLAIN_MESSAGE);
+				else JOptionPane.showMessageDialog(null,/*void ГђГ Г±Г·ВёГІГ */1, "ГђГҐГ§ГіГ«ГјГІГ ГІ", JOptionPane.PLAIN_MESSAGE);
 				pane[0].setText("");
 				pane[1].setText("");
 				pane[2].setText("");
 				}
 			}
 		});
-		add(btn2= new JButton("ОТчёт"));
+		add(btn2= new JButton("ГЋГ’Г·ВёГІ"));
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  try (PrintWriter writer = new PrintWriter(new File("K:/Курсач ИС/Раздел 2/test.csv"))) {
+				  try (PrintWriter writer = new PrintWriter(new File("K:/ГЉГіГ°Г±Г Г· Г€Г‘/ГђГ Г§Г¤ГҐГ« 2/test.csv"))) {
 
 				      StringBuilder sb = new StringBuilder();
-				      sb.append("Дата;Сумма; Процент");
+				      sb.append("Г„Г ГІГ ;Г‘ГіГ¬Г¬Г ; ГЏГ°Г®Г¶ГҐГ­ГІ");
 				      sb.append('\n');
 
 				      sb.append("31;15;300");
@@ -94,7 +94,7 @@ public class AdminForm extends CalcForm{
 
 			}
 		});
-		add(btn3 = new JButton("Закрыть"));
+		add(btn3 = new JButton("Г‡Г ГЄГ°Г»ГІГј"));
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(1);
