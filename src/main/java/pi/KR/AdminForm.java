@@ -73,7 +73,7 @@ public class AdminForm extends CalcForm{
 				}
 			}
 		});
-		add(btn2= new JButton("ÃŽÃ’Ã·Â¸Ã²"));
+		add(btn2= new JButton("Îò÷¸ò"));
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  try (PrintWriter writer = new PrintWriter(new File("Îò÷¸ò.csv"))) {
