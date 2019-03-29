@@ -59,7 +59,8 @@ public class UserForm extends CalcForm{
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());	
-				JOptionPane.showMessageDialog(null,/*void расчёта*/1, "Результат", JOptionPane.PLAIN_MESSAGE);
+				if (kapital.isSelected()) JOptionPane.showMessageDialog(null,/*void расчёта*/1, "Результат", JOptionPane.PLAIN_MESSAGE);
+				else JOptionPane.showMessageDialog(null,/*void расчёта*/1, "Результат", JOptionPane.PLAIN_MESSAGE);
 				pane[0].setText("");
 				pane[1].setText("");
 				pane[2].setText("");

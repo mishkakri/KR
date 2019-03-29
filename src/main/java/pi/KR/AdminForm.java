@@ -37,13 +37,13 @@ public class AdminForm extends CalcForm{
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(5,2));
 		add(pane[0]= new JTextField());
-		add(label[0] = new JLabel("РЎСѓРјРјР° РІРєР»Р°РґР°"));
+		add(label[0] = new JLabel("Сумма вклада"));
 		add(pane[1]= new JTextField());
-		add(label[1] = new JLabel("РџСЂРѕС†РµРЅС‚ РІРєР»Р°РґР°"));
+		add(label[1] = new JLabel("Процентная ставка"));
 		add(pane[2]= new JTextField());
-		add(label[2] = new JLabel("РЎСЂРѕРє РІРєР»Р°РґР° (Р“РѕРґ)"));
-		add(kapital = new JCheckBox("ГЉГ ГЇГЁГІГ Г«ГЁГ§Г Г¶ГЁГї"));
-		add(btn1= new JButton("ГђГ Г±Г·ГЁГІГ ГІГј"));
+		add(label[2] = new JLabel("Срок (год)"));
+		add(kapital = new JCheckBox("Начисление капитализации"));
+		add(btn1= new JButton("Расчитать"));
 		for (int i=0;i<pane.length;i++) {
 		pane[i].addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
@@ -77,10 +77,10 @@ public class AdminForm extends CalcForm{
 		add(btn2= new JButton("ГЋГ’Г·ВёГІ"));
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  try (PrintWriter writer = new PrintWriter(new File("K:/ГЉГіГ°Г±Г Г· Г€Г‘/ГђГ Г§Г¤ГҐГ« 2/test.csv"))) {
+				  try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
 
 				      StringBuilder sb = new StringBuilder();
-				      sb.append("Г„Г ГІГ ;Г‘ГіГ¬Г¬Г ; ГЏГ°Г®Г¶ГҐГ­ГІ");
+				      sb.append("Date ;Summ ; Ord");
 				      sb.append('\n');
 
 				      sb.append("31;15;300");
@@ -94,7 +94,7 @@ public class AdminForm extends CalcForm{
 
 			}
 		});
-		add(btn3 = new JButton("Г‡Г ГЄГ°Г»ГІГј"));
+		add(btn3 = new JButton("Закрыть"));
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(1);
