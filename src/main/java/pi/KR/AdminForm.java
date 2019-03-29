@@ -57,17 +57,16 @@ public class AdminForm extends CalcForm{
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
-					JOptionPane.showMessageDialog(null,"Г‚ГўГҐГ¤ГҐГ­Г» Г­ГҐГўГҐГ°Г­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГї", "ГЋГёГЁГЎГЄГ ", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-				boolean cap = Boolean.valueOf(kapital.isSelected());
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());
 				if (kapital.isSelected()) {
-					JOptionPane.showMessageDialog(null,/*void ГђГ Г±Г·ВёГІГ */1, "ГђГҐГ§ГіГ«ГјГІГ ГІ", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null,Calculation.kapitalOn(a, b, c), "Результат", JOptionPane.PLAIN_MESSAGE);
 				}
-				else JOptionPane.showMessageDialog(null,/*void ГђГ Г±Г·ВёГІГ */1, "ГђГҐГ§ГіГ«ГјГІГ ГІ", JOptionPane.PLAIN_MESSAGE);
+				else JOptionPane.showMessageDialog(null,Calculation.kapitalOff(a, b, c) , "Результат", JOptionPane.PLAIN_MESSAGE);
 				pane[0].setText("");
 				pane[1].setText("");
 				pane[2].setText("");

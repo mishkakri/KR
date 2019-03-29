@@ -21,4 +21,8 @@ public interface Calculation {
 		//sumP=(p*i*t)/(k*100);
 		return df.format(sum);
 	}
+	
+	public static void resulCSV(double p, double i, int t) {
+		
+	}
 }

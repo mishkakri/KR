@@ -55,7 +55,6 @@ public class UserForm extends CalcForm{
 					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-				boolean cap = Boolean.valueOf(kapital.isSelected());
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());	
