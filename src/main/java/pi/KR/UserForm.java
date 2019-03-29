@@ -5,10 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class UserForm extends CalcForm{
@@ -58,8 +61,15 @@ public class UserForm extends CalcForm{
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());	
-				if (kapital.isSelected()) JOptionPane.showMessageDialog(null,Calculation.kapitalOn(a, b, c), "Результат", JOptionPane.PLAIN_MESSAGE);
-				else JOptionPane.showMessageDialog(null,Calculation.kapitalOff(a, b, c), "Результат", JOptionPane.PLAIN_MESSAGE);
+				JPanel myPanel = new JPanel();
+				myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
+				myPanel.add(new JLabel("Сумма на конец вклада:"));
+					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)));
+					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+"руб."));
+				myPanel.add(new JLabel("Прибыль:"));
+					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c))); 
+					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+"руб."));
+					JOptionPane.showMessageDialog(null,myPanel, "Результат", JOptionPane.PLAIN_MESSAGE);
 				pane[0].setText("");
 				pane[1].setText("");
 				pane[2].setText("");
