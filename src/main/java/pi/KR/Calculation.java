@@ -10,11 +10,10 @@ public interface Calculation {
 	DecimalFormat df = new DecimalFormat("#.##");
 	
 	public static String kapitalOn(double p,double i, int t) {
-		double j, sum = 0,sumP=0,n = 0;
+		double j, sum = 0,n = 0;
 		n=t*12;
 		j=(t*k)/n;
 		sum=p*Math.pow((1+(i*j)/(100*k)),n);
-		//sumP=sum=p*Math.pow((1+(i*j)/(100*k)),n)-p;
 		return df.format(sum);
 	}
 	

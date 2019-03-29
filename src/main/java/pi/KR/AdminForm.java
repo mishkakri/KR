@@ -9,8 +9,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -31,6 +29,7 @@ public class AdminForm extends CalcForm{
 	static JLabel[] label= new JLabel[3];
 	static JCheckBox kapital= new JCheckBox();
 	static DecimalFormat df = new DecimalFormat("#.####");
+	
  
 	public AdminForm() {
 		super();
@@ -62,22 +61,30 @@ public class AdminForm extends CalcForm{
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
 					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
+				else if ((Integer.valueOf(pane[2].getText())>90)) {
+					JOptionPane.showMessageDialog(null,"Слишком долгий срок, врдя ли вы проживете столько", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
 				else {
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());
 				JPanel myPanel = new JPanel();
-				myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
+				Object[] options = {"Ввести новые значения",
+                "Продолжить"};
+				myPanel.setLayout(new GridLayout(2,2));
+				//myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
 				myPanel.add(new JLabel("Сумма на конец вклада:"));
-					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)));
-					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+"руб."));
+				myPanel.add(new JLabel(""));
+					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));
+					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+" руб."));
 				myPanel.add(new JLabel("Прибыль:"));
-					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c))); 
-					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+"руб."));
-					JOptionPane.showMessageDialog(null,myPanel, "Результат", JOptionPane.PLAIN_MESSAGE);
-				pane[0].setText("");
-				pane[1].setText("");
-				pane[2].setText("");
+				myPanel.add(new JLabel(""));
+					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" руб.")); 
+					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" руб."));
+					int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.PLAIN_MESSAGE,JOptionPane.YES_NO_OPTION,null, options,options[0]);
+					if (n==0) {pane[0].setText("");
+					pane[1].setText("");
+					pane[2].setText("");}
 				}
 			}
 		});
