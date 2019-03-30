@@ -26,7 +26,7 @@ public class UserForm extends CalcForm{
  
 	public UserForm() {
 		super();
-		setTitle("Форма пользователя");
+		setTitle("Депозитный калькулятор (Клиент)");
 		setSize(400,400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

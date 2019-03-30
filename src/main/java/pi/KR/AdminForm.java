@@ -30,7 +30,7 @@ public class AdminForm extends CalcForm{
  
 	public AdminForm() {
 		super();
-		setTitle("Admin form");
+		setTitle("Депозитный калькулятор (Сотрудник)");
 		setSize(400,400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

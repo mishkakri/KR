@@ -31,7 +31,7 @@ public class UserChoose extends CalcForm{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(4,2));
-		add(userBtn= new JButton("Пользователь"));
+		add(userBtn= new JButton("Клиент"));
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserForm form = new UserForm();
