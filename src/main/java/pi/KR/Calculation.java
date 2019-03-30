@@ -44,14 +44,24 @@ public interface Calculation {
 	
 	public static void resulCSV(double p, double i, int t) {
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
-
+			  double sumP=(p*(i/100))/(12*t);
 		      StringBuilder sb = new StringBuilder();
-		      sb.append("Месяц вклада ;Сумаа процентов ; Вся сумма");
+		      sb.append("Month ;% sum ;sum");
 		      sb.append('\n');
-		      for(int j=1;j<=t*12;j++) {
-		    	  sb.append(j+";"+"aa"+";"+"aa");
+		    if (AdminForm.kapital.isSelected()) {
+		    	for(int j=1;j<=t*12;j++) {
+		    		double sum=p*(i/(100*t*12));
+		    		p=p+sum;
+		    		sb.append(j+";"+df.format(sum)+";"+df.format(p));
+			    	  sb.append('\n');
+		    	}
+		    }
+		    else {
+		    	for(int j=1;j<=t*12;j++) {
+		    	  sb.append(j+";"+df.format(sumP)+";"+df.format(p)+" rub");
 		    	  sb.append('\n');
-		      }
+		    	  if (j==t*12) sb.append("Summ at the"+";"+"end of deposit"+";"+(df.format((p*i*t*365)/(k*100))));
+		      }}
 		      writer.write(sb.toString());
 
 		    } catch (FileNotFoundException f) {
