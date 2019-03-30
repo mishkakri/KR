@@ -1,7 +1,6 @@
 package pi.KR;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 
 public class CalcForm extends JFrame
