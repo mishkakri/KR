@@ -43,10 +43,10 @@ public interface Calculation {
 	
 	
 	public static void resulCSV(double p, double i, int t) {
-		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
+		 try (PrintWriter writer = new PrintWriter(new File("РћС‚С‡С‘С‚.csv"))) {
 
 		      StringBuilder sb = new StringBuilder();
-		      sb.append("Месяц вклада ;Сумаа процентов ; Вся сумма");
+		      sb.append("РњРµСЃСЏС† РІРєР»Р°РґР°В ;РЎСѓРјР°Р° РїСЂРѕС†РµРЅС‚РѕРІВ ; Р’СЃСЏ СЃСѓРјРјР°");
 		      sb.append('\n');
 		      for(int j=1;j<=t*12;j++) {
 		    	  sb.append(j+";"+"aa"+";"+"aa");
@@ -57,6 +57,6 @@ public interface Calculation {
 		    } catch (FileNotFoundException f) {
 		      System.out.println(f.getMessage());
 		    }
-		 JOptionPane.showMessageDialog(null, "Успешно", "Отчёт создан", JOptionPane.PLAIN_MESSAGE);
+		 JOptionPane.showMessageDialog(null, "РЈСЃРїРµС€РЅРѕ", "РћС‚С‡С‘С‚ СЃРѕР·РґР°РЅ", JOptionPane.PLAIN_MESSAGE);
 	}
 }
