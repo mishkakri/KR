@@ -5,9 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -72,7 +69,6 @@ public class AdminForm extends CalcForm{
 				Object[] options = {"Ввести новые значения",
                 "Продолжить"};
 				myPanel.setLayout(new GridLayout(2,2));
-				//myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
 				myPanel.add(new JLabel("Сумма на конец вклада:"));
 				myPanel.add(new JLabel(""));
 					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));
@@ -81,7 +77,7 @@ public class AdminForm extends CalcForm{
 				myPanel.add(new JLabel(""));
 					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" руб.")); 
 					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" руб."));
-					int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.PLAIN_MESSAGE,JOptionPane.YES_NO_OPTION,null, options,options[0]);
+					int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,null, options,options[0]);
 					if (n==0) {pane[0].setText("");
 					pane[1].setText("");
 					pane[2].setText("");}
@@ -91,21 +87,18 @@ public class AdminForm extends CalcForm{
 		add(btn2= new JButton("Отчёт"));
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
-
-				      StringBuilder sb = new StringBuilder();
-				      sb.append("Date ;Summ ; Ord");
-				      sb.append('\n');
-
-				      sb.append("31;15;300");
-				      sb.append('\n');
-
-				      writer.write(sb.toString());
-
-				    } catch (FileNotFoundException f) {
-				      System.out.println(f.getMessage());
-				    }
-
+				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
+					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
+				else if ((Integer.valueOf(pane[2].getText())>90)) {
+					JOptionPane.showMessageDialog(null,"Слишком долгий срок, врдя ли вы проживете столько", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+				double a=Double.valueOf(pane[0].getText());
+				double b=Double.valueOf(pane[1].getText());
+				int c=Integer.valueOf(pane[2].getText());
+				Calculation.resulCSV(a,b,c);
+				}
 			}
 		});
 		add(btn3 = new JButton("Закрыть"));

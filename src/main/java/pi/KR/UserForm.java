@@ -66,7 +66,6 @@ public class UserForm extends CalcForm{
 				myPanel.setLayout(new GridLayout(2,3));
 				Object[] options = {"Ввести новые значения",
                 "Продолжить"};
-				//myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
 				myPanel.add(new JLabel("Сумма на конец вклада:"));
 				myPanel.add(new JLabel(""));
 					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));

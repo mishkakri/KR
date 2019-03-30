@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 
+import javax.swing.JOptionPane;
+
 public interface Calculation {
 	int  k=365;
 	DecimalFormat df = new DecimalFormat("#.##");
@@ -44,16 +46,17 @@ public interface Calculation {
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
 
 		      StringBuilder sb = new StringBuilder();
-		      sb.append("Date ;Summ ; Ord");
+		      sb.append("Месяц вклада ;Сумаа процентов ; Вся сумма");
 		      sb.append('\n');
-
-		      sb.append("31;15;300");
-		      sb.append('\n');
-
+		      for(int j=1;j<=t*12;j++) {
+		    	  sb.append(j+";"+"aa"+";"+"aa");
+		    	  sb.append('\n');
+		      }
 		      writer.write(sb.toString());
 
 		    } catch (FileNotFoundException f) {
 		      System.out.println(f.getMessage());
 		    }
+		 JOptionPane.showMessageDialog(null, "Успешно", "Отчёт создан", JOptionPane.PLAIN_MESSAGE);
 	}
 }
