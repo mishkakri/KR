@@ -30,19 +30,19 @@ public class AdminForm extends CalcForm{
  
 	public AdminForm() {
 		super();
-		setTitle("Депозитный калькулятор (Сотрудник)");
+		setTitle("Р”РµРїРѕР·РёС‚РЅС‹Р№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ (РЎРѕС‚СЂСѓРґРЅРёРє)");
 		setSize(400,400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(5,2));
 		add(pane[0]= new JTextField());
-		add(label[0] = new JLabel("Сумма вклада"));
+		add(label[0] = new JLabel("РЎСѓРјРјР° РІРєР»Р°РґР°"));
 		add(pane[1]= new JTextField());
-		add(label[1] = new JLabel("Процентная ставка"));
+		add(label[1] = new JLabel("РџСЂРѕС†РµРЅС‚РЅР°СЏ СЃС‚Р°РІРєР°"));
 		add(pane[2]= new JTextField());
-		add(label[2] = new JLabel("Срок (год)"));
-		add(kapital = new JCheckBox("Начисление капитализации"));
-		add(btn1= new JButton("Расчитать"));
+		add(label[2] = new JLabel("РЎСЂРѕРє (РіРѕРґ)"));
+		add(kapital = new JCheckBox("РќР°С‡РёСЃР»РµРЅРёРµ РєР°РїРёС‚Р°Р»РёР·Р°С†РёРё"));
+		add(btn1= new JButton("Р Р°СЃС‡РёС‚Р°С‚СЊ"));
 		for (int i=0;i<pane.length;i++) {
 		pane[i].addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
@@ -56,42 +56,42 @@ public class AdminForm extends CalcForm{
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
-					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Р’РІРµРґРµРЅС‹ РЅРµРІРµСЂРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 				}
 				else if ((Integer.valueOf(pane[2].getText())>90)) {
-					JOptionPane.showMessageDialog(null,"Слишком долгий срок, врдя ли вы проживете столько", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"РЎР»РёС€РєРѕРј РґРѕР»РіРёР№ СЃСЂРѕРє, РІСЂРґСЏ Р»Рё РІС‹ РїСЂРѕР¶РёРІРµС‚Рµ СЃС‚РѕР»СЊРєРѕ", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 				double a=Double.valueOf(pane[0].getText());
 				double b=Double.valueOf(pane[1].getText());
 				int c=Integer.valueOf(pane[2].getText());
 				JPanel myPanel = new JPanel();
-				Object[] options = {"Ввести новые значения",
-                "Продолжить"};
+				Object[] options = {"Р’РІРµСЃС‚Рё РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ",
+                "РџСЂРѕРґРѕР»Р¶РёС‚СЊ"};
 				myPanel.setLayout(new GridLayout(2,2));
-				myPanel.add(new JLabel("Сумма на конец вклада:"));
+				myPanel.add(new JLabel("РЎСѓРјРјР° РЅР° РєРѕРЅРµС† РІРєР»Р°РґР°:"));
 				myPanel.add(new JLabel(""));
-					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));
-					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+" руб."));
-				myPanel.add(new JLabel("Прибыль:"));
+					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" СЂСѓР±."));
+					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+" СЂСѓР±."));
+				myPanel.add(new JLabel("РџСЂРёР±С‹Р»СЊ:"));
 				myPanel.add(new JLabel(""));
-					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" руб.")); 
-					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" руб."));
-					int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,null, options,options[0]);
+					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" СЂСѓР±.")); 
+					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" СЂСѓР±."));
+					int n = JOptionPane.showOptionDialog(null,myPanel, "Р РµР·СѓР»СЊС‚Р°С‚", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,null, options,options[0]);
 					if (n==0) {pane[0].setText("");
 					pane[1].setText("");
 					pane[2].setText("");}
 				}
 			}
 		});
-		add(btn2= new JButton("Отчёт"));
+		add(btn2= new JButton("РћС‚С‡С‘С‚"));
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
-					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Р’РІРµРґРµРЅС‹ РЅРµРІРµСЂРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 				}
 				else if ((Integer.valueOf(pane[2].getText())>90)) {
-					JOptionPane.showMessageDialog(null,"Слишком долгий срок, врдя ли вы проживете столько", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"РЎР»РёС€РєРѕРј РґРѕР»РіРёР№ СЃСЂРѕРє, РІСЂРґСЏ Р»Рё РІС‹ РїСЂРѕР¶РёРІРµС‚Рµ СЃС‚РѕР»СЊРєРѕ", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 				double a=Double.valueOf(pane[0].getText());
@@ -101,7 +101,7 @@ public class AdminForm extends CalcForm{
 				}
 			}
 		});
-		add(btn3 = new JButton("Закрыть"));
+		add(btn3 = new JButton("Р—Р°РєСЂС‹С‚СЊ"));
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(1);

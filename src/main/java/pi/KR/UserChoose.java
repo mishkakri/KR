@@ -26,12 +26,12 @@ public class UserChoose extends CalcForm{
  
 	public UserChoose() {
 		super();
-		setTitle("Выберите пользователя");
+		setTitle("Р’С‹Р±РµСЂРёС‚Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ");
 		setSize(400,400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(4,2));
-		add(userBtn= new JButton("Клиент"));
+		add(userBtn= new JButton("РљР»РёРµРЅС‚"));
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserForm form = new UserForm();
@@ -40,21 +40,21 @@ public class UserChoose extends CalcForm{
 				
 			}
 		});
-		add(adminBtn= new JButton("Сотрудник Банка"));
+		add(adminBtn= new JButton("РЎРѕС‚СЂСѓРґРЅРёРє Р‘Р°РЅРєР°"));
 		adminBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JTextField Login = new JTextField(5);
 				JPasswordField Password = new JPasswordField(5);
 				JPanel myPanel = new JPanel();
 				myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
-				myPanel.add(new JLabel("Логин:"));
+				myPanel.add(new JLabel("Р›РѕРіРёРЅ:"));
 				myPanel.add(Login);
-				myPanel.add(new JLabel("Пароль:"));
+				myPanel.add(new JLabel("РџР°СЂРѕР»СЊ:"));
 				myPanel.add(Password); 	
 				boolean check=false;
 				do {
 				int result = JOptionPane.showConfirmDialog(null, myPanel,
-						"Введите логин и пароль", JOptionPane.OK_CANCEL_OPTION);
+						"Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ Рё РїР°СЂРѕР»СЊ", JOptionPane.OK_CANCEL_OPTION);
 				if (result == JOptionPane.OK_OPTION) { 
 					if((Login.getText().equals(Log))&((Arrays.equals(Password.getPassword(),Pass)))) {
 						AdminForm form = new AdminForm();
