@@ -8,8 +8,8 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public interface Calculation {
-	int  k=365;
-	DecimalFormat df = new DecimalFormat("#.##");
+	static final int  k=365;
+	static DecimalFormat df = new DecimalFormat("#.##");
 	
 	public static String kapitalOn(double p,double i, int t) {
 		double j, sum = 0,n = 0;
@@ -69,4 +69,5 @@ public interface Calculation {
 		    }
 		 JOptionPane.showMessageDialog(null, "Успешно", "Отчёт создан", JOptionPane.PLAIN_MESSAGE);
 	}
+	
 }

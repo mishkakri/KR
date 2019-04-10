@@ -18,12 +18,15 @@ public class UserChoose extends CalcForm{
 	 * 
 	 */
 	private static final long serialVersionUID = -5079599438260047805L;
-	static JButton userBtn= new JButton();
-	static JButton adminBtn= new JButton();
-	static JLabel[] label= new JLabel[3];
-	final static String Log="admin";
-	final static char[] Pass= {'a','d','m','i','n'};
- 
+	private static JButton userBtn= new JButton();
+	private static JButton adminBtn= new JButton();
+	private final static String Log="admin";
+	private final static char[] Pass= {'a','d','m','i','n'};
+	
+	/**
+	 *  
+	 */
+	
 	public UserChoose() {
 		super();
 		setTitle("Выберите пользователя");
@@ -31,6 +34,11 @@ public class UserChoose extends CalcForm{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(4,2));
+		
+		/**
+		 * 
+		 */
+		
 		add(userBtn= new JButton("Клиент"));
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -40,6 +48,11 @@ public class UserChoose extends CalcForm{
 				
 			}
 		});
+		
+		/**
+		 * 
+		 */
+		
 		add(adminBtn= new JButton("Сотрудник Банка"));
 		adminBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +80,7 @@ public class UserChoose extends CalcForm{
 						Password.setText(null);
 					} 
 				}
-				else { check =true;}
+				else { check=true;}
 			}while(check==false);
 			}
 		});
