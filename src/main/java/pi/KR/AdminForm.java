@@ -22,7 +22,7 @@ public class AdminForm extends CalcMain{
 	private static JTextField[] pane= new JTextField[3];
 	private static JButton[] btn= new JButton[3];
 	private static JLabel[] label= new JLabel[3];
-	private static JCheckBox kapital= new JCheckBox();
+	public static JCheckBox kapital= new JCheckBox();
 	
  
 	public AdminForm() {

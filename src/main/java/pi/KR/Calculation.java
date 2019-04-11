@@ -8,9 +8,17 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public interface Calculation {
+	
 	static final int  k=365;
 	static DecimalFormat df = new DecimalFormat("#.##");
 	
+	/**
+	 * 
+	 * @param p
+	 * @param i
+	 * @param t
+	 * @return
+	 */
 	public static String kapitalOn(double p,double i, int t) {
 		double j, sum = 0,n = 0;
 		n=t*12;
@@ -19,6 +27,9 @@ public interface Calculation {
 		return df.format(sum);
 	}
 	
+	/**
+	 * 
+	 */
 	public static String kapitalOnSum(double p,double i, int t) {
 		double j,sumP=0,n = 0;
 		n=t*12;

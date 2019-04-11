@@ -2,6 +2,12 @@ package pi.KR;
 
 import javax.swing.JFrame;
 
+	/**
+	 * @author ToxanUfa
+	 * 
+	 * Главный класс программы, наследующий библиотек javax.swing.JFrame
+	 * @see javax.swing.JFrame
+	 */
 public class CalcMain extends JFrame
 {
     /**

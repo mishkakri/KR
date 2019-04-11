@@ -11,12 +11,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+	/**
+	 * Класс, в котором создаётся окно выбора пользователя и
+	 * осуществляется переход на выбранное окно пользователя.
+	 */
 public class UserChoose extends CalcMain{
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -5079599438260047805L;
 	private static JButton userBtn= new JButton();
 	private static JButton adminBtn= new JButton();
@@ -24,9 +25,10 @@ public class UserChoose extends CalcMain{
 	private final static char[] Pass= {'a','d','m','i','n'};
 	
 	/**
-	 *  
+	 * Метод заполнения графического окна элементам.
+	 * Изначально устанавливается его название, размеры, стандартная операция закрытия,
+	 * начальное положение на экране и стиль расположения элементов в окне.
 	 */
-	
 	public UserChoose() {
 		super();
 		setTitle("Выберите пользователя");
@@ -36,9 +38,9 @@ public class UserChoose extends CalcMain{
 		setLayout(new GridLayout(4,2));
 		
 		/**
-		 * 
+		 * Добовление кнопки userBtn, и изменение события, происходящего при нажатии на кнопку.
+		 * После нажатия на кнопку инициализируется новое окно описанное в классе UserForm, происходит закрытие текущего окна и запуск окна UserForm.
 		 */
-		
 		add(userBtn= new JButton("Клиент"));
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,9 +52,14 @@ public class UserChoose extends CalcMain{
 		});
 		
 		/**
-		 * 
+		 * Добовление кнопки adminBtn, и изменение события, происходящего при нажатии на кнопку.
+		 * После нажатия на кнопку выводится панель для ввода пароля и логина сотрудника.
+		 * Выполняется проверка достовернеости введёного пароля и логина.
+		 * Если пароль и логин введены корректно, то инициализируется новое окно описанное в классе AdminForm,
+		 * происходит закрытие текущего окна и запуск окна AdminForm.
+		 * Если пароль и логин введены не корректно, выводится сообщение о некоррктно введеных значениях,
+		 * значения полей логина и пароля обнуляются, попытка ввода осуществляется снова. 
 		 */
-		
 		add(adminBtn= new JButton("Сотрудник Банка"));
 		adminBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,6 +83,7 @@ public class UserChoose extends CalcMain{
 						check=true;
 					}
 					else{
+						JOptionPane.showMessageDialog(null,"Попробуйте снова" ,"Логин или пароль введены неверно", JOptionPane.WARNING_MESSAGE);
 						Login.setText(null);
 						Password.setText(null);
 					} 
