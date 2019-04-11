@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 	/**
 	 * Класс, в котором создаётся окно выбора пользователя и
 	 * осуществляется переход на выбранное окно пользователя.
@@ -94,4 +95,3 @@ public class UserChoose extends CalcMain{
 		});
 	}
 }
-

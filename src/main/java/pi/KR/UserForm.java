@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+	/**
+	 * Класс, в котором создаётся окно для клиента.
+	 */
 public class UserForm extends CalcMain{
 	
 	/**
@@ -24,6 +27,15 @@ public class UserForm extends CalcMain{
 	private static JLabel[] label= new JLabel[4];
 	private static JCheckBox kapital= new JCheckBox();
  
+	/**
+	 * Метод заполнения графического окна элементам.
+	 * Изначально устанавливается его название, размеры, стандартная операция закрытия,
+	 * начальное положение на экране и стиль расположения элементов в окне.
+	 * На панель добавляются JTextField - поля ввода,
+	 * JButton - функциональные кнопки
+	 * JLabel - подписи к некоторым элементам
+	 * JCheckBox - флаговая кнопка
+	 */
 	public UserForm() {
 		super();
 		setTitle("Депозитный калькулятор (Клиент)");
@@ -40,6 +52,14 @@ public class UserForm extends CalcMain{
 		add(kapital = new JCheckBox("Капитализация"));
 		add(label[3]=new JLabel(""));
 		add(btn[0]= new JButton("Расчитать"));
+		
+	/**
+	 * При помощи цикла организовано ограничение ввода символов в поля 
+	 * JTextField таким образом, что в данные поля разрешается вводить только числове значения и десятичный разделитель.
+	 * Всвязи с особенностью языка Java, десятичным разделителем является знак '.', но для удобства 
+	 * обращения с калькулятором, ввод знака ',' тоже разжрешен, но графически
+	 * будет отображаться как знак '.'.
+	 */
 		for (paneCount=0;paneCount<pane.length;paneCount++) {
 			pane[paneCount].addKeyListener(new KeyAdapter() {
 				public void keyTyped(KeyEvent e) {
@@ -49,6 +69,13 @@ public class UserForm extends CalcMain{
 				}
 			});
 		}
+		
+		/**
+		 * Изменение обработчика события для кнопки btn[0] (кнопка "Расчитать").
+		 * Устанавливаются ограничения на вводимые значения для JTextField и отображаются ошибки, при вводе значений, превышающих ограничения.
+		 * Производится вызов операции по расчёту вклада из интерфейса Calculation
+		 * и отображение полученного результата при помощи JOptionPane.
+		 */
 		btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -63,21 +90,21 @@ public class UserForm extends CalcMain{
 						JOptionPane.showMessageDialog(null,"Максиально возмождная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 					}
 					else {
-						double a=Double.valueOf(pane[0].getText());
-						double b=Double.valueOf(pane[1].getText());
-						int c=Integer.valueOf(pane[2].getText());	
+						double deposit=Double.valueOf(pane[0].getText());
+						double percentage=Double.valueOf(pane[1].getText());
+						int term=Integer.valueOf(pane[2].getText());	
 						JPanel myPanel = new JPanel();
 						myPanel.setLayout(new GridLayout(2,3));
 						Object[] options = {"Ввести новые значения",
 		                "Продолжить"};
 						myPanel.add(new JLabel("Сумма на конец вклада:"));
 						myPanel.add(new JLabel(""));
-						if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));
-						else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+" руб."));
+						if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(deposit, percentage, term)+" руб."));
+						else myPanel.add(new JLabel(Calculation.kapitalOff(deposit, percentage, term)+" руб."));
 						myPanel.add(new JLabel("Прибыль:"));
 						myPanel.add(new JLabel(""));
-						if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" руб.")); 
-						else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" руб."));
+						if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(deposit, percentage, term)+" руб.")); 
+						else myPanel.add(new JLabel(Calculation.kapitalOffSum(deposit, percentage, term)+" руб."));
 						int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
 								null, options,options[0]);
 							if (n==0) {
@@ -94,6 +121,11 @@ public class UserForm extends CalcMain{
 			}
 			}
 		});
+		
+		/**
+		 * Добавление на окно UserForm кнопки btn[1],
+		 * осуществляещей переход на окно выбора пользователя UserChoose.
+		 */
 		add(btn[1]= new JButton("Сменить пользователя"));
 		btn[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
