@@ -76,6 +76,7 @@ public class AdminForm extends CalcMain{
 		 * Устанавливаются ограничения на вводимые значения для JTextField и отображаются ошибки, при вводе значений, превышающих ограничения.
 		 * Производится вызов операции по расчёту вклада из интерфейса Calculation
 		 * и отображение полученного результата при помощи JOptionPane.
+		 * @throws NumberFormatException при вводе неккоретных значений
 		 */
 		btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

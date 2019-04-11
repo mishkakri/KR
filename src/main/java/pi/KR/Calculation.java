@@ -27,9 +27,7 @@ public interface Calculation {
 		return df.format(sum);
 	}
 	
-	/**
-	 * 
-	 */
+
 	public static String kapitalOnSum(double p,double i, int t) {
 		double j,sumP=0,n = 0;
 		n=t*12;
