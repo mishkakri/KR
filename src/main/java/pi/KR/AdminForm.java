@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Класс, в котором создаётся окно для сотрудника.
+ */
 public class AdminForm extends CalcMain{
 	
 	/**
@@ -24,7 +27,15 @@ public class AdminForm extends CalcMain{
 	private static JLabel[] label= new JLabel[3];
 	public static JCheckBox kapital= new JCheckBox();
 	
- 
+	/**
+	 * Метод заполнения графического окна элементам.
+	 * Изначально устанавливается его название, размеры, стандартная операция закрытия,
+	 * начальное положение на экране и стиль расположения элементов в окне.
+	 * На панель добавляются JTextField - поля ввода,
+	 * JButton - функциональные кнопки
+	 * JLabel - подписи к некоторым элементам
+	 * JCheckBox - флаговая кнопка
+	 */
 	public AdminForm() {
 		super();
 		setTitle("Депозитный калькулятор (Сотрудник)");
@@ -40,6 +51,14 @@ public class AdminForm extends CalcMain{
 		add(label[2] = new JLabel("Срок (год)"));
 		add(kapital = new JCheckBox("Начисление капитализации"));
 		add(btn[0]= new JButton("Расчитать"));
+		
+		/**
+		 * При помощи цикла организовано ограничение ввода символов в поля 
+		 * JTextField таким образом, что в данные поля разрешается вводить только числове значения и десятичный разделитель.
+		 * Всвязи с особенностью языка Java, десятичным разделителем является знак '.', но для удобства 
+		 * обращения с калькулятором, ввод знака ',' тоже разжрешен, но графически
+		 * будет отображаться как знак '.'.
+		 */
 		for (paneCount=0;paneCount<pane.length;paneCount++) {
 			pane[paneCount].addKeyListener(new KeyAdapter() {
 				public void keyTyped(KeyEvent e) {
@@ -51,6 +70,13 @@ public class AdminForm extends CalcMain{
 				}	
 			});
 		}
+		
+		/**
+		 * Изменение обработчика события для кнопки btn[0] (кнопка "Расчитать").
+		 * Устанавливаются ограничения на вводимые значения для JTextField и отображаются ошибки, при вводе значений, превышающих ограничения.
+		 * Производится вызов операции по расчёту вклада из интерфейса Calculation
+		 * и отображение полученного результата при помощи JOptionPane.
+		 */
 		btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -65,21 +91,21 @@ public class AdminForm extends CalcMain{
 					JOptionPane.showMessageDialog(null,"Максиально возмождная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-					double a=Double.valueOf(pane[0].getText());
-					double b=Double.valueOf(pane[1].getText());
-					int c=Integer.valueOf(pane[2].getText());
+					double deposit=Double.valueOf(pane[0].getText());
+					double percentage=Double.valueOf(pane[1].getText());
+					int term=Integer.valueOf(pane[2].getText());
 					JPanel myPanel = new JPanel();
 					Object[] options = {"Ввести новые значения",
 	                "Продолжить"};
 					myPanel.setLayout(new GridLayout(2,2));
 					myPanel.add(new JLabel("Сумма на конец вклада:"));
 					myPanel.add(new JLabel(""));
-					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(a, b, c)+" руб."));
-					else myPanel.add(new JLabel(Calculation.kapitalOff(a, b, c)+" руб."));
+					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(deposit, percentage, term)+" руб."));
+					else myPanel.add(new JLabel(Calculation.kapitalOff(deposit, percentage, term)+" руб."));
 					myPanel.add(new JLabel("Прибыль:"));
 					myPanel.add(new JLabel(""));
-					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(a, b, c)+" руб.")); 
-					else myPanel.add(new JLabel(Calculation.kapitalOffSum(a, b, c)+" руб."));
+					if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(deposit, percentage, term)+" руб.")); 
+					else myPanel.add(new JLabel(Calculation.kapitalOffSum(deposit, percentage, term)+" руб."));
 					int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,null, options,options[0]);
 					if (n==0) {
 						pane[0].setText("");
@@ -95,23 +121,37 @@ public class AdminForm extends CalcMain{
 				}
 			}
 		});
+		
+		/**
+		 * Добавление на окно UserForm кнопки btn[1],
+		 * осуществляещей выввод поторобной информации о вкладе в табличный документ.
+		 * Вывод осуществляется посредством вызова метода из интерфейса Caclulation.
+		 */
 		add(btn[1]= new JButton("Отчёт"));
 		btn[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
 					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
-				else if ((Integer.valueOf(pane[2].getText())>90)) {
-					JOptionPane.showMessageDialog(null,"Слишком долгий срок, врдя ли вы проживете столько", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				else if ((Integer.valueOf(pane[2].getText())>40)) {
+					JOptionPane.showMessageDialog(null,"Максимально возможный срок 40 лет", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
+				else if((Integer.valueOf(pane[1].getText())>30)) {
+					JOptionPane.showMessageDialog(null,"Максиально возмождная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-				double a=Double.valueOf(pane[0].getText());
-				double b=Double.valueOf(pane[1].getText());
-				int c=Integer.valueOf(pane[2].getText());
-				Calculation.resulCSV(a,b,c);
+				double deposit=Double.valueOf(pane[0].getText());
+				double percentage=Double.valueOf(pane[1].getText());
+				int term=Integer.valueOf(pane[2].getText());
+				Calculation.resulCSV(deposit,percentage,term);
 				}
 			}
 		});
+		
+		/**
+		 * Добавление на окно UserForm кнопки btn[2],
+		 * осуществляещей переход на окно выбора пользователя UserChoose.
+		 */
 		add(btn[2] = new JButton("Сменить пользователя"));
 		btn[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,5 +162,3 @@ public class AdminForm extends CalcMain{
 		});
 	}
 }
-
-
