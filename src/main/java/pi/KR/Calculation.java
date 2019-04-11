@@ -79,6 +79,7 @@ public interface Calculation {
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
+	 * @throws FileNotFoundException
 	 */
 	public static void resulCSV(double p, double i, int t) {
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
