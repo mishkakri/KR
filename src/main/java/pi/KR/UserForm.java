@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class UserForm extends CalcForm{
+public class UserForm extends CalcMain{
 	
 	/**
 	 * 
@@ -20,9 +20,9 @@ public class UserForm extends CalcForm{
 	private static final long serialVersionUID = -388753505614938320L;
 	private int paneCount;
 	private static JTextField[] pane= new JTextField[3];
-	static JButton[] btn= new JButton[2];
-	static JLabel[] label= new JLabel[4];
-	static JCheckBox kapital= new JCheckBox();
+	private static JButton[] btn= new JButton[2];
+	private static JLabel[] label= new JLabel[4];
+	private static JCheckBox kapital= new JCheckBox();
  
 	public UserForm() {
 		super();

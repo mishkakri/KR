@@ -12,17 +12,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AdminForm extends CalcForm{
+public class AdminForm extends CalcMain{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -441900793765254338L;
 	private int paneCount;
-	static JTextField[] pane= new JTextField[3];
-	static JButton[] btn= new JButton[3];
-	static JLabel[] label= new JLabel[3];
-	static JCheckBox kapital= new JCheckBox();
+	private static JTextField[] pane= new JTextField[3];
+	private static JButton[] btn= new JButton[3];
+	private static JLabel[] label= new JLabel[3];
+	private static JCheckBox kapital= new JCheckBox();
 	
  
 	public AdminForm() {

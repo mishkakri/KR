@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class UserChoose extends CalcForm{
+public class UserChoose extends CalcMain{
 	
 	/**
 	 * 
