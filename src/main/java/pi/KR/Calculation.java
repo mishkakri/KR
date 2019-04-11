@@ -13,11 +13,12 @@ public interface Calculation {
 	static DecimalFormat df = new DecimalFormat("#.##");
 	
 	/**
-	 * 
-	 * @param p
-	 * @param i
-	 * @param t
-	 * @return
+	 * Метод расчёта сумммы вклада на конец срока с учётом капитализации.
+	 * @param p отображает значение суммы вклада
+	 * @param i отображает значение процента вклада
+	 * @param t отображает значение срока вклада в годах
+	 * @return значение переменной sum после выполнения операций расчёта
+	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
 	 */
 	public static String kapitalOn(double p,double i, int t) {
 		double j, sum = 0,n = 0;
@@ -27,7 +28,14 @@ public interface Calculation {
 		return df.format(sum);
 	}
 	
-
+	/**
+	 * Метод расчёта сумммы процентов вклада на конец срока с учётом капитализации.
+	 * @param p отображает значение суммы вклада
+	 * @param i отображает значение процента вклада
+	 * @param t отображает значение срока вклада в годах
+	 * @return значение переменной sum после выполнения операций расчёта
+	 *  Метод возвращает значение строки равной начисленному проценту
+	 */
 	public static String kapitalOnSum(double p,double i, int t) {
 		double j,sumP=0,n = 0;
 		n=t*12;
@@ -36,6 +44,14 @@ public interface Calculation {
 		return df.format(sumP);
 	}
 	
+	/**
+	 * Метод расчёта сумммы вклада на конец срока без учёта капитализации.
+	 * @param p отображает значение суммы вклада
+	 * @param i отображает значение процента вклада
+	 * @param t отображает значение срока вклада в годах
+	 * @return значение переменной sum после выполнения операций расчёта
+	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
+	 */
 	public static String kapitalOff(double p,double i, int t) {
 		double sum = 0;
 		t=365*t;
@@ -43,6 +59,14 @@ public interface Calculation {
 		return df.format(sum);
 	}
 	
+	/**
+	 * Метод расчёта сумммы процентов вклада на конец срока без учёта капитализации.
+	 * @param p отображает значение суммы вклада
+	 * @param i отображает значение процента вклада
+	 * @param t отображает значение срока вклада в годах
+	 * @return значение переменной sum после выполнения операций расчёта
+	 *  Метод возвращает значение строки равной начисленному проценту
+	 */
 	public static String kapitalOffSum(double p,double i, int t) {
 		double sumP=0;
 		t=365*t;
@@ -50,7 +74,12 @@ public interface Calculation {
 		return df.format(sumP);
 	}
 	
-	
+	/**
+	 * Метод создания табличного документа с подробной информацией о начислениях по вкладу
+	 * @param p отображает значение суммы вклада
+	 * @param i отображает значение процента вклада
+	 * @param t отображает значение срока вклада в годах
+	 */
 	public static void resulCSV(double p, double i, int t) {
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
 			  double sumP=(p*(i/100))/(12*t);
