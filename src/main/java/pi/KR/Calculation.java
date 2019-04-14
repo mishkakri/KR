@@ -85,7 +85,7 @@ public interface Calculation {
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
 			  double sumP=(p*(i/100))/(12*t);
 		      StringBuilder sb = new StringBuilder();
-		      sb.append("Month ;% sum ;sum");
+		      sb.append("Month ;% sum ;sum");
 		      sb.append('\n');
 		    if (AdminForm.kapital.isSelected()) {
 		    	for(int j=1;j<=t*12;j++) {

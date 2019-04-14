@@ -50,7 +50,7 @@ public class AdminForm extends CalcMain{
 		add(pane[2]= new JTextField());
 		add(label[2] = new JLabel("Срок (год)"));
 		add(kapital = new JCheckBox("Начисление капитализации"));
-		add(btn[0]= new JButton("Расчитать"));
+		add(btn[0]= new JButton("Рассчитать"));
 		
 		/**
 		 * При помощи цикла организовано ограничение ввода символов в поля 
@@ -89,7 +89,7 @@ public class AdminForm extends CalcMain{
 					JOptionPane.showMessageDialog(null,"Максимально возможный срок 40 лет", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else if((Integer.valueOf(pane[1].getText())>30)) {
-					JOptionPane.showMessageDialog(null,"Максиально возмождная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Максимально возможная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 					double deposit=Double.valueOf(pane[0].getText());
@@ -138,7 +138,7 @@ public class AdminForm extends CalcMain{
 					JOptionPane.showMessageDialog(null,"Максимально возможный срок 40 лет", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else if((Integer.valueOf(pane[1].getText())>30)) {
-					JOptionPane.showMessageDialog(null,"Максиально возмождная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Максимально возможная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 				double deposit=Double.valueOf(pane[0].getText());
