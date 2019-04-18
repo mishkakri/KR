@@ -86,7 +86,7 @@ public class UserForm extends CalcMain{
 					else if ((Integer.valueOf(pane[2].getText())>40)) {
 						JOptionPane.showMessageDialog(null,"Максимально возможный срок 40 лет", "Ошибка", JOptionPane.ERROR_MESSAGE);
 					}
-					else if((Integer.valueOf(pane[1].getText())>30)) {
+					else if((Double.valueOf(pane[1].getText())>30)) {
 						JOptionPane.showMessageDialog(null,"Максимально возможная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 					}
 					else {

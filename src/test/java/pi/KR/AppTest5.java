@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 /**
  * Unit test for DepositApp.
  */
-public class AppTest 
+public class AppTest5 
     extends TestCase {
 	
 	public void test_kapitalOnSum()
