@@ -21,15 +21,15 @@ public class AppTest5
 		/**
 		 * @param result gринимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation.
 		 * Методу Calculation.kapitalOn(p,i,t) передаются следующие значения:
-		 * @param p - Начальная сумма вклада = 30000
-		 * @param i - Процентная ставка = 11%
-		 * @param t - Срок = 1 год
+		 * @param p - Начальная сумма вклада = 77000
+		 * @param i - Процентная ставка = 4.2%
+		 * @param t - Срок = 4 год
 		 */
-		String result = Calculation.kapitalOn(30000.0, 11.0, 1);
+		String result = Calculation.kapitalOn(77000.0, 4.2, 4);
 		/**
 		 * Вызываем стандартную функцию JUnit библиотеки, которая сравнивает
 		 * значение, которое заведомо верно, с значением @param result
 		 */
-		assertEquals("33471,56", result);	
+		assertEquals("91059,40", result);	
 	}
 }
