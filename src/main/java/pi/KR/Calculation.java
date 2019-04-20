@@ -3,6 +3,7 @@ package pi.KR;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
@@ -10,10 +11,9 @@ import javax.swing.JOptionPane;
 public interface Calculation {
 	
 	static final int  k=365;
-	static DecimalFormat df = new DecimalFormat("#.##");
-	
+	static DecimalFormat df = new DecimalFormat("0.00");
 	/**
-	 * Метод расчёта суммы вклада на конец срока с учётом капитализации.
+	 * Функция расчёта суммы вклада на конец срока с учётом капитализации.
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
@@ -21,6 +21,7 @@ public interface Calculation {
 	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
 	 */
 	public static String kapitalOn(double p,double i, int t) {
+		df.setRoundingMode(RoundingMode.FLOOR);
 		double j, sum = 0,n = 0;
 		n=t*12;
 		j=(t*k)/n;
@@ -29,14 +30,15 @@ public interface Calculation {
 	}
 	
 	/**
-	 * Метод расчёта суммы процентов вклада на конец срока с учётом капитализации.
+	 * Функция расчёта суммы процентов вклада на конец срока с учётом капитализации.
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
-	 * @return значение переменной sum после выполнения операций расчёта
+	 * @return значение переменной sumP после выполнения операций расчёта
 	 *  Метод возвращает значение строки равной начисленному проценту
 	 */
 	public static String kapitalOnSum(double p,double i, int t) {
+		df.setRoundingMode(RoundingMode.FLOOR);
 		double j,sumP=0,n = 0;
 		n=t*12;
 		j=(t*k)/n;
@@ -45,7 +47,7 @@ public interface Calculation {
 	}
 	
 	/**
-	 * Метод расчёта суммы вклада на конец срока без учёта капитализации.
+	 * Функция расчёта суммы вклада на конец срока без учёта капитализации.
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
@@ -53,6 +55,7 @@ public interface Calculation {
 	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
 	 */
 	public static String kapitalOff(double p,double i, int t) {
+		df.setRoundingMode(RoundingMode.FLOOR);
 		double sum = 0;
 		t=365*t;
 		sum=p*(1+(i*t)/(100*k));
@@ -60,14 +63,15 @@ public interface Calculation {
 	}
 	
 	/**
-	 * Метод расчёта суммы процентов вклада на конец срока без учёта капитализации.
+	 * Функция расчёта суммы процентов вклада на конец срока без учёта капитализации.
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
-	 * @return значение переменной sum после выполнения операций расчёта
+	 * @return значение переменной sumP после выполнения операций расчёта
 	 *  Метод возвращает значение строки равной начисленному проценту
 	 */
 	public static String kapitalOffSum(double p,double i, int t) {
+		df.setRoundingMode(RoundingMode.FLOOR);
 		double sumP=0;
 		t=365*t;
 		sumP=(p*i*t)/(k*100);
@@ -75,13 +79,14 @@ public interface Calculation {
 	}
 	
 	/**
-	 * Метод создания табличного документа с подробной информацией о начислениях по вкладу
+	 * Функция создания табличного документа с подробной информацией о начислениях по вкладу
 	 * @param p отображает значение суммы вклада
 	 * @param i отображает значение процента вклада
 	 * @param t отображает значение срока вклада в годах
 	 * @throws FileNotFoundException
 	 */
 	public static void resulCSV(double p, double i, int t) {
+		df.setRoundingMode(RoundingMode.FLOOR);
 		 try (PrintWriter writer = new PrintWriter(new File("Отчёт.csv"))) {
 			  double sumP=(p*(i/100))/(12*t);
 		      StringBuilder sb = new StringBuilder();
