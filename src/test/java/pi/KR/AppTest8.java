@@ -1,14 +1,13 @@
 package pi.KR;
 
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import junit.framework.TestCase;
 
 /**
  * В теле данного класса расположен метод для проверки точности
  * расчётов суммы вклада с учётом капитализации
  */
-public class AppTest 
+public class AppTest8 
     extends TestCase {
 	
 	@Test
