@@ -10,11 +10,12 @@ import junit.framework.TestCase;
 public class AppTest8 
     extends TestCase {
 	
-	@Test
+	
 	/**
 	 * Метод, который выполняет тестирование
 	 * @param result принимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation
 	 */
+	@Test
 	public void test_kapitalOn()
 	{	
 		/**

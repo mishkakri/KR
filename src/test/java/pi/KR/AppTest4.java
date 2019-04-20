@@ -10,11 +10,12 @@ import junit.framework.TestCase;
 public class AppTest4 
     extends TestCase {
 	
-	@Test
+	
 	/**
 	 * Метод, который выполняет тестирование
 	 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation
 	 */
+	@Test
 	public void test_kapitalOn()
 	{	
 		/**
