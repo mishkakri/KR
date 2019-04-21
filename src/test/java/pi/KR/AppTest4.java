@@ -24,6 +24,7 @@ public class AppTest4
 		 * @param p - Начальная сумма вклада = 45000
 		 * @param i - Процентная ставка = 12%
 		 * @param t - Срок = 2 год
+		 * Значения взяты из примера в разделе 3.
 		 */
 		String result = Calculation.kapitalOffSum(45000.0, 12.0, 2);
 		/**

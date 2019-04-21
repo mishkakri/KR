@@ -24,6 +24,7 @@ public class AppTest1
 		 * @param p - Начальная сумма вклада = 30000
 		 * @param i - Процентная ставка = 11%
 		 * @param t - Срок = 1 год
+		 * Значения взяты из примера в разделе 3.
 		 */
 		String result = Calculation.kapitalOn(30000.0, 11.0, 1);
 		/**
