@@ -1,6 +1,8 @@
 language: java
 jdk:
-  - oraclejdk8
+        - oraclejdk8
+befort_built:
+        mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script: src/test/java/pi/KR/AppTest1.java
         src/test/java/pi/KR/AppTest2.java
         src/test/java/pi/KR/AppTest3.java
