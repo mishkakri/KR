@@ -1,4 +1,4 @@
 language: java
-jdk: openjdk10
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-script: KR/src/test/java/pi/KR/AppText1.java
+jdk: 
+ - oraclejdk8
+script: -KR/src/test/java/pi/KR/AppText1.java
