@@ -1,4 +1,3 @@
 language: java
 jdk: openjdk10
-before_built: mvn exec:java -Dexec.mainClass="pi.KR.CalcMain"
 script: KR/src/test/java/pi/KR/AppText1.java
