@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk8
+script: src/test/java/pi/KR/AppTest1.java
+  src/test/java/pi/KR/AppTest2.java
+  src/test/java/pi/KR/AppTest3.java
+  src/test/java/pi/KR/AppTest4.java
+  src/test/java/pi/KR/AppTest5.java
+  src/test/java/pi/KR/AppTest6.java
+  src/test/java/pi/KR/AppTest7.java
+  src/test/java/pi/KR/AppTest8.java
