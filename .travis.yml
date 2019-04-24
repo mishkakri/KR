@@ -1,5 +1,5 @@
 language: java
 jdk: openjdk10
+before_built:
 mvn exec:java -Dexec.mainClass="pi.KR.CalcMain"
-sudo: false
-script: mvn clean
+script: KR/src/test/java/pi/KR/AppText1.java
