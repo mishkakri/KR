@@ -27,7 +27,9 @@
   
  <build>
  
-  <plugin>
+    <plugins>
+    
+    <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.21.0</version>
         <dependencies>
@@ -43,8 +45,7 @@
           </dependency>
         </dependencies>
       </plugin>
- 
-    <plugins>
+    
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
