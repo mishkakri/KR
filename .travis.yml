@@ -1,8 +1,6 @@
 language: java
 jdk:
         - oraclejdk9
-sudo: false
-script: mvn clean verify
 script: src/test/java/pi/KR/AppTest1.java
         src/test/java/pi/KR/AppTest2.java
         src/test/java/pi/KR/AppTest3.java
