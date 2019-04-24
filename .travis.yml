@@ -4,5 +4,5 @@ jdk:
   - oraclejdk8
   - oraclejdk9
 before_install:
-  - cd app
+  - mvn clean
 script: -KR/src/test/java/pi/KR/AppText1.java
