@@ -1,4 +1,11 @@
 language: java
 jdk:
   - oraclejdk8
-script: mvn test -B
+script: /mvn test -B
+mvn test -Dtest=pi.KR.AppTest1
+mvn test -Dtest=pi.KR.AppTest2
+mvn test -Dtest=pi.KR.AppTest3
+mvn test -Dtest=pi.KR.AppTest4
+mvn test -Dtest=pi.KR.AppTest5
+mvn test -Dtest=pi.KR.AppTest6
+mvn test -Dtest=pi.KR.AppTest7
