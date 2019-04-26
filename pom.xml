@@ -36,10 +36,10 @@
 	     <configuration>
     <excludes>
     <!-- exclude file tests from travis-ci.org execution -->
-        <exclude>**/FileTest.java</exclude>
-        <exclude>**/FileExercisesTest.java</exclude>
-        <exclude>**/PropertiesTest.java</exclude>
-        <exclude>**/PropertyExercisesTest.java</exclude>
+        <exclude>**/AppTest1.java</exclude>
+        <exclude>**/AppTest2.java</exclude>
+        <exclude>**/AppTest3.java</exclude>
+        <exclude>**/AppTest4.java</exclude>
     </excludes>
     </configuration>
         <dependencies>
