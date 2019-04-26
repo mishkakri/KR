@@ -2,5 +2,5 @@ language: java
 jdk:
   - oraclejdk8
 script: 
--mvn test -B
--ant test
+- mvn test -B
+- ant test
