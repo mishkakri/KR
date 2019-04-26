@@ -4,4 +4,4 @@ jdk:
 script: 
 - mvn test -B
 - mvn test -f pom.xml
-- ant test
+- JUnit test -f src/test/java/pi/KR/AppTest1.java
