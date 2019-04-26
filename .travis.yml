@@ -1,8 +1,7 @@
 language: java
 jdk:
   - oraclejdk8
-before_install:
-  - cd java
 script: 
 - mvn test -B
+- mvn test -f ./source/pom.xml
 - ant test
