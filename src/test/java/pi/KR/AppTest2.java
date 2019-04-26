@@ -26,7 +26,7 @@ public class AppTest2
 		 * @param t - Срок = 2 год
 		 * Значения взяты из примера в разделе 3.
 		 */
-		String result = Calculation.kapitalOnSum(47000.0, 9.0, 2);
+		String result = Calculation.kapitalOnSum(47000.0, 9.0, 1);
 		/**
 		 * Вызываем стандартную функцию JUnit библиотеки, которая сравнивает
 		 * значение, которое заведомо верно, с значением @param result
