@@ -3,4 +3,3 @@ jdk:
   - oraclejdk8
 script: 
 - mvn test -B
-- ant test
