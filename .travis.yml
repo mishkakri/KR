@@ -3,5 +3,3 @@ jdk:
   - oraclejdk8
 script: 
 - mvn test -B
-- mvn test -f pom.xml
-- mvn test -f src/test/java/pi/KR/AppTest1.java
