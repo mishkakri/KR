@@ -3,5 +3,5 @@ jdk:
   - oraclejdk8
 script: 
 - mvn test -B
-- mvn test -f ./source/pom.xml
+- mvn test -f pom.xml
 - ant test
