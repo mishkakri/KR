@@ -2,7 +2,6 @@ package pi.KR;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import junit.framework.*;
 
 /**
  * В теле данного класса расположен метод для проверки точности
