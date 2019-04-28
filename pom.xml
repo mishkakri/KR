@@ -18,7 +18,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.0.0-M5</version>
+      <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -31,7 +31,7 @@
     <version>2.21.0</version>
     <configuration>
                     <includes>
-                        <include>AppTest1.java</include>
+                        <include>**/*AppTest1.java</include>
                         <include>**/*AppTest2.java</include>
                         <include>**/*AppTest3.java</include>
                         <include>**/*AppTest4.java</include>
@@ -42,7 +42,6 @@
                         
                     </includes>
                 </configuration>
- 
     <dependencies>
         <dependency>
             <groupId>org.junit.platform</groupId>
