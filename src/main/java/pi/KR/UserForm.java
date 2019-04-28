@@ -5,9 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -29,7 +26,6 @@ public class UserForm extends CalcMain{
 	private static JButton[] btn= new JButton[2];
 	private static JLabel[] label= new JLabel[4];
 	private static JCheckBox kapital= new JCheckBox();
-	static DecimalFormat df = new DecimalFormat("0.00");
  
 	/**
 	 * Метод заполнения графического окна элементам.
@@ -82,7 +78,6 @@ public class UserForm extends CalcMain{
 		 */
 		btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				df.setRoundingMode(RoundingMode.FLOOR);
 				try {
 					if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
 						JOptionPane.showMessageDialog(null,"Введите значения в поля", "Ошибка", JOptionPane.ERROR_MESSAGE);
@@ -104,12 +99,12 @@ public class UserForm extends CalcMain{
 		                "Продолжить"};
 						myPanel.add(new JLabel("Сумма на конец вклада:"));
 						myPanel.add(new JLabel(""));
-						if (kapital.isSelected()) myPanel.add(new JLabel(df.format(Calculation.kapitalOn(deposit, percentage, term)+" руб.")));
-						else myPanel.add(new JLabel(df.format(Calculation.kapitalOff(deposit, percentage, term)+" руб.")));
+						if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(deposit, percentage, term)+" руб."));
+						else myPanel.add(new JLabel(Calculation.kapitalOff(deposit, percentage, term)+" руб."));
 						myPanel.add(new JLabel("Прибыль:"));
 						myPanel.add(new JLabel(""));
-						if (kapital.isSelected())myPanel.add(new JLabel(df.format(Calculation.kapitalOnSum(deposit, percentage, term)+" руб."))); 
-						else myPanel.add(new JLabel(df.format(Calculation.kapitalOffSum(deposit, percentage, term)+" руб.")));
+						if (kapital.isSelected())myPanel.add(new JLabel(Calculation.kapitalOnSum(deposit, percentage, term)+" руб.")); 
+						else myPanel.add(new JLabel(Calculation.kapitalOffSum(deposit, percentage, term)+" руб."));
 						int n = JOptionPane.showOptionDialog(null,myPanel, "Результат", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
 								null, options,options[0]);
 							if (n==0) {
