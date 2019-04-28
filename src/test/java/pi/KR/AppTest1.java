@@ -2,6 +2,8 @@ package pi.KR;
 
 import org.junit.Test;
 import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * В теле данного класса расположен метод для проверки точности
