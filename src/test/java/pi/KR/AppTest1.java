@@ -28,7 +28,7 @@ public class AppTest1  {
 		 * Значения взяты из примера в разделе 3.
 		 */
 		String result = Calculation.kapitalOn(30000.0, 11.0, 1);
-		result = result.replace(",", ".");
+		result = result.replace(".", ",");
 		/**
 		 * Вызываем стандартную функцию JUnit библиотеки, которая сравнивает
 		 * значение, которое заведомо верно, с значением @param result
