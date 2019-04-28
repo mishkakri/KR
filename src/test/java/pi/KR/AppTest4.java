@@ -1,14 +1,13 @@
 package pi.KR;
 
-import org.junit.Test;
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * В теле данного класса расположен метод для проверки точности
  * расчётов суммы процентов вклада
  */
-public class AppTest4 
-    extends TestCase {
+public class AppTest4  {
 	
 	
 	/**
@@ -19,7 +18,7 @@ public class AppTest4
 	public void test_kapitalOn()
 	{	
 		/**
-		 * @param result gринимает значение метода расчёта суммы процентов вклада из интрефейса Calculation.
+		 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation.
 		 * Методу Calculation.kapitalOff(p,i,t) передаются следующие значения:
 		 * @param p - Начальная сумма вклада = 45000
 		 * @param i - Процентная ставка = 12%
