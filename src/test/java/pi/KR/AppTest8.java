@@ -14,7 +14,7 @@ public class AppTest8 {
 	 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation
 	 */
 	@Test
-	public void test_kapitalOffSum()
+	void test_kapitalOffSum()
 	{	
 		/**
 		 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation.

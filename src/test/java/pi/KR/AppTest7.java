@@ -14,7 +14,7 @@ public class AppTest7 {
 	 * @param result принимает значение метода расчёта суммы вклада из интрефейса Calculation
 	 */
 	@Test
-	public void test_kapitalOff()
+	void test_kapitalOff()
 	{	
 		/**
 		 * @param result принимает значение метода расчёта суммы вклада из интрефейса Calculation.

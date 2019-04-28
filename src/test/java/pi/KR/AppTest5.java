@@ -15,7 +15,7 @@ public class AppTest5  {
 	 * @param result принимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation
 	 */
 	@Test
-	public void test_kapitalOn()
+	void test_kapitalOn()
 	{	
 		/**
 		 * @param result принимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation.
