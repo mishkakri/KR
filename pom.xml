@@ -62,7 +62,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>peoples.Win</mainClass>
+                            <mainClass>KR.CalcMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
