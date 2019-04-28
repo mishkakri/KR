@@ -1,1 +1,1 @@
-# KR
+# Kursovaya rabota
