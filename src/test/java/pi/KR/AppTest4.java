@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * В теле данного класса расположен метод для проверки точности
  * расчётов суммы процентов вклада
  */
-class AppTest4  {
+public class AppTest4  {
 	
 	
 	/**
@@ -15,7 +15,7 @@ class AppTest4  {
 	 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation
 	 */
 	@Test
-	void test_kapitalOn()
+	public void test_kapitalOn()
 	{	
 		/**
 		 * @param result принимает значение метода расчёта суммы процентов вклада из интрефейса Calculation.

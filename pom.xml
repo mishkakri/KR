@@ -4,8 +4,11 @@
 
   <groupId>pi.216</groupId>
   <artifactId>KR</artifactId>
-  <version>0.1.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
+
+  <name>Lol</name>
+  <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,34 +18,58 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>RELEASE</version>
+      <version>5.0.0-M5</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  
   <build>
-    <plugins>
-
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.21.0</version>
-        <dependencies>
-          <dependency>
+  <plugins>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.21.0</version>
+    <configuration>
+                    <includes>
+                        <include>AppTest1.java</include>
+                        <include>**/*AppTest2.java</include>
+                        <include>**/*AppTest3.java</include>
+                        <include>**/*AppTest4.java</include>
+                        <include>**/*AppTest5.java</include>
+                        <include>**/*AppTest6.java</include>
+                        <include>**/*AppTest7.java</include>
+                        <include>**/*AppTest8.java</include>
+                        
+                    </includes>
+                </configuration>
+ 
+    <dependencies>
+        <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-surefire-provider</artifactId>
             <version>1.2.0-M1</version>
-          </dependency>
-          <dependency>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.2.0-M1</version>
-          </dependency>
-        </dependencies>
-      </plugin>
+        </dependency>
+    </dependencies>
+</plugin>
 
-      <plugin>
+ <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.1</version>
+    <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+    </configuration>
+</plugin>
+ <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -52,6 +79,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -62,8 +90,21 @@
                     </archive>
                 </configuration>
             </plugin>
-
-        </plugins>
-    </build>
-
+             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+          			<execution>
+            			<goals>
+              				<goal>java</goal>
+           				</goals>
+          			</execution>
+        			</executions>
+                <configuration>
+                    <mainClass>pi.KR.CalcMain</mainClass>
+                </configuration>
+            </plugin>
+</plugins>
+</build>
 </project>

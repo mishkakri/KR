@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
  * В теле данного класса расположен метод для проверки точности
  * расчётов суммы вклада с учётом капитализации
  */
-class AppTest1  {
+public class AppTest1  {
 	/**
 	 * Метод, который выполняет тестирование
 	 * @param result принимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation
 	 */
 	@Test
-	void test_kapitalOn()
+	public void test_kapitalOn()
 	{	
 		/**
 		 * @param result принимает значение метода расчёта суммы вклада с учётом капитализации из интрефейса Calculation.
