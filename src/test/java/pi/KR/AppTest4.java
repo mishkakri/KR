@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * В теле данного класса расположен метод для проверки точности
  * расчётов суммы процентов вклада
  */
-public class AppTest4  {
+class AppTest4  {
 	
 	
 	/**
