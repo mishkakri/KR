@@ -4,10 +4,10 @@
 
   <groupId>pi.216</groupId>
   <artifactId>KR</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.2.3</version>
   <packaging>jar</packaging>
 
-  <name>Lol</name>
+  <name>KR</name>
   <url>http://maven.apache.org</url>
 
   <properties>
