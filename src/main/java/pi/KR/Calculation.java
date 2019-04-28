@@ -20,13 +20,13 @@ public interface Calculation {
 	 * @return значение переменной sum после выполнения операций расчёта
 	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
 	 */
-	public static String kapitalOn(double p,double i, int t) {
+	public static double kapitalOn(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
 		double j, sum = 0,n = 0;
 		n=t*12;
 		j=(t*k)/n;
 		sum=p*Math.pow((1+(i*j)/(100*k)),n);
-		return df.format(sum);
+		return sum;
 	}
 	
 	/**
@@ -37,13 +37,13 @@ public interface Calculation {
 	 * @return значение переменной sumP после выполнения операций расчёта
 	 *  Метод возвращает значение строки равной начисленному проценту
 	 */
-	public static String kapitalOnSum(double p,double i, int t) {
+	public static double kapitalOnSum(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
 		double j,sumP=0,n = 0;
 		n=t*12;
 		j=(t*k)/n;
 		sumP=p*Math.pow((1+(i*j)/(100*k)),n)-p;
-		return df.format(sumP);
+		return sumP;
 	}
 	
 	/**
@@ -54,12 +54,12 @@ public interface Calculation {
 	 * @return значение переменной sum после выполнения операций расчёта
 	 * Метод возвращает значение строки равной сумме вклада + начисленный процент
 	 */
-	public static String kapitalOff(double p,double i, int t) {
+	public static double kapitalOff(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
 		double sum = 0;
 		t=365*t;
 		sum=p*(1+(i*t)/(100*k));
-		return df.format(sum);
+		return sum;
 	}
 	
 	/**
@@ -70,12 +70,12 @@ public interface Calculation {
 	 * @return значение переменной sumP после выполнения операций расчёта
 	 *  Метод возвращает значение строки равной начисленному проценту
 	 */
-	public static String kapitalOffSum(double p,double i, int t) {
+	public static double kapitalOffSum(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
 		double sumP=0;
 		t=365*t;
 		sumP=(p*i*t)/(k*100);
-		return df.format(sumP);
+		return sumP;
 	}
 	
 	/**
