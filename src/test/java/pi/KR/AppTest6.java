@@ -24,6 +24,7 @@ public class AppTest6 {
 		 * @param t - Срок = 3 год
 		 */
 		String result = Calculation.kapitalOnSum(25456.0, 1.1, 3);
+		result = result.replace(".", ",");
 		/**
 		 * Вызываем стандартную функцию JUnit библиотеки, которая сравнивает
 		 * значение, которое заведомо верно, с значением @param result
