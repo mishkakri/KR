@@ -21,7 +21,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.2.0-M1</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -62,7 +61,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>KR.CalcMain</mainClass>
+                            <mainClass>pi.KR.CalcMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
