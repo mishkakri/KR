@@ -4,7 +4,7 @@
 
   <groupId>pi.216</groupId>
   <artifactId>KR</artifactId>
-  <version>0.2.3</version>
+  <version>1</version>
   <packaging>jar</packaging>
 
   <name>KR</name>
@@ -12,13 +12,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <source>1.8</source>
+    <target>1.8</target>
   </properties>
 
 <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>RELEASE</version>
+      <version>5.4.0-RC1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -58,20 +60,24 @@
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.1</version>
+    <version>3.7.0</version>
+    <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
 </plugin>
              <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
-                <executions>
+                <!--  <executions>
           			<execution>
                   <phase>test</phase>
             			<goals>
               				<goal>java</goal>
            				</goals>
           			</execution>
-        			</executions>
+        			</executions>-->
                 <configuration>
                     <mainClass>pi.KR.CalcMain</mainClass>
                 </configuration>
