@@ -1,10 +1,6 @@
 package pi.KR;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 import org.junit.jupiter.api.Test;
 
 /**
