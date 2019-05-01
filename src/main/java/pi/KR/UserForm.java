@@ -50,6 +50,7 @@ public class UserForm extends CalcMain{
 		add(pane[2]= new JTextField());
 		add(label[2] = new JLabel("Срок (год)"));
 		add(kapital = new JCheckBox("Капитализация"));
+		kapital.setToolTipText("Автоматическое присоединение суммы процентов ко вкладу");
 		add(label[3]=new JLabel(""));
 		add(btn[0]= new JButton("Рассчитать"));
 		
