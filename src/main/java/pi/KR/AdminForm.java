@@ -96,11 +96,16 @@ public class AdminForm extends CalcMain{
 		 */
 		btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/**
+				 * В данном блоке кода выполняется проверка значений из панелей ввода pane на корректность
+				 */
 				try {
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
 					JOptionPane.showMessageDialog(null,"Введите значения в поля", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
-				
+				else if ((Double.valueOf(pane[0].getText())>1000000000)) {
+					JOptionPane.showMessageDialog(null,"Максимально возможная сумма вклада 1000000000 руб.", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
 				else if ((Double.valueOf(pane[2].getText())>40)) {
 					JOptionPane.showMessageDialog(null,"Максимально возможный срок 40 лет", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
@@ -125,7 +130,7 @@ public class AdminForm extends CalcMain{
 					myPanel.add(new JLabel("Сумма на конец вклада:"));
 					myPanel.add(new JLabel(""));
 					/**
-					 * цикл осуществляющий вызов функций расчёта и отображение результатов в окне
+					 * Цикл осуществляющий вызов функций расчёта и отображение результатов в окне
 					 */
 					if (kapital.isSelected()) myPanel.add(new JLabel(Calculation.kapitalOn(deposit, percentage, term)+" руб."));
 					else myPanel.add(new JLabel(Calculation.kapitalOff(deposit, percentage, term)+" руб."));
@@ -154,12 +159,15 @@ public class AdminForm extends CalcMain{
 		});
 		
 		/**
-		 * @param btn[1] - кнопка осуществялющая подробный вывод результата в табличный документ "Отчёт.csv"
+		 * @param btn[1] - кнопка, осуществялющая подробный вывод результата в табличный документ "Отчёт.csv"
 		 * Вывод осуществляется посредством вызова метода из интерфейса Caclulation.
 		 */
 		add(btn[1]= new JButton("Отчёт"));
 		btn[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/**
+				 * В данном блоке кода выполняется проверка значений из панелей ввода pane на корректность
+				 */
 				if ((pane[0].getText().trim().length()==0)||(pane[1].getText().trim().length()==0)||(pane[2].getText().trim().length()==0)) {
 					JOptionPane.showMessageDialog(null,"Введены неверные значения", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
@@ -170,6 +178,11 @@ public class AdminForm extends CalcMain{
 					JOptionPane.showMessageDialog(null,"Максимально возможная процентная ставка = 30%", "Ошибка", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
+					/**
+					 * @param deposit - запись значения из поля ввоода pane[0] в переменную
+					 * @param percentage - запись значения из поля ввоода pane[1] в переменную
+					 * @param term - запись значения из поля ввоода pane[2] в переменную
+					 */
 				double deposit=Double.valueOf(pane[0].getText());
 				double percentage=Double.valueOf(pane[1].getText());
 				int term=Integer.valueOf(pane[2].getText());
@@ -179,8 +192,7 @@ public class AdminForm extends CalcMain{
 		});
 		
 		/**
-		 * Добавление на окно UserForm кнопки btn[2],
-		 * осуществляющей переход на окно выбора пользователя UserChoose.
+		 * @param btn[2] - кнопка, осуществялющая переход на окно выбора пользователя UserChoose
 		 */
 		add(btn[2] = new JButton("Сменить пользователя"));
 		btn[2].addActionListener(new ActionListener() {

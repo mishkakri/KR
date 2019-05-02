@@ -17,13 +17,17 @@ import javax.swing.JTextField;
 	 * осуществляется переход на выбранное окно пользователя.
 	 */
 public class UserChoose extends CalcMain{
-	
-	
+	/**
+	 * @param userBtn - функциональная кнопка
+	 * @param adminBtn - функциональная кнопка 
+	 * @param login - Текстовая переменная имени пользователя, для идентфикации при переходе на окно AdminForm
+	 * @param password - массив символов пароля, для идентфикации при переходе на окно AdminForm
+	 */
 	private static final long serialVersionUID = -5079599438260047805L;
 	private static JButton userBtn= new JButton();
 	private static JButton adminBtn= new JButton();
-	private final static String Log="admin";
-	private final static char[] Pass= {'a','d','m','i','n'};
+	private final static String login="admin";
+	private final static char[] password= {'a','d','m','i','n'};
 	
 	/**
 	 * Метод заполнения графического окна элементам.
@@ -39,8 +43,7 @@ public class UserChoose extends CalcMain{
 		setLayout(new GridLayout(4,2));
 		
 		/**
-		 * Добавление кнопки userBtn, и изменение события, происходящего при нажатии на кнопку.
-		 * После нажатия на кнопку инициализируется новое окно описанное в классе UserForm, происходит закрытие текущего окна и запуск окна UserForm.
+		 * @param userBtn - кнопка, инициализирующая переход на окно UserForm
 		 */
 		add(userBtn= new JButton("Клиент"));
 		userBtn.addActionListener(new ActionListener() {
@@ -53,7 +56,7 @@ public class UserChoose extends CalcMain{
 		});
 		
 		/**
-		 * Добавление кнопки adminBtn, и изменение события, происходящего при нажатии на кнопку.
+		 * @param adminBtn - кнопка, инициализирующая переход на окно AdminForm
 		 * После нажатия на кнопку выводится панель для ввода пароля и логина сотрудника.
 		 * Выполняется проверка достоверности введённого пароля и логина.
 		 * Если пароль и логин введены корректно, то инициализируется новое окно описанное в классе AdminForm,
@@ -64,20 +67,33 @@ public class UserChoose extends CalcMain{
 		add(adminBtn= new JButton("Сотрудник Банка"));
 		adminBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JTextField Login = new JTextField(5);
-				JPasswordField Password = new JPasswordField(5);
-				JPanel myPanel = new JPanel();
-				myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
-				myPanel.add(new JLabel("Логин:"));
-				myPanel.add(Login);
-				myPanel.add(new JLabel("Пароль:"));
-				myPanel.add(Password); 	
+				/**
+				 * @param loginField - поле ввода логина
+				 * @param passwordField - поле ввода пароля
+				 * @param signInPanel - панель авторизации на которой расположены loginField и passwordField
+				 */
+				JTextField loginField = new JTextField(5);
+				JPasswordField passwordField = new JPasswordField(5);
+				JPanel signInPanel = new JPanel();
+				signInPanel.setLayout(new BoxLayout(signInPanel, BoxLayout.PAGE_AXIS));
+				signInPanel.add(new JLabel("Логин:"));
+				signInPanel.add(loginField);
+				signInPanel.add(new JLabel("Пароль:"));
+				signInPanel.add(passwordField); 	
+				/**
+				 * @param check - логическая переменная, принимающая значение true если пароль и логин являються верными.
+				 */
 				boolean check=false;
+				/**
+				 * Цикл проверки введеного пароля и логина на верность
+				 * @param result - принимает значение кнопик, нажатой на окне авторизации.
+				 * Если была нажата кнопка OK, то запускается цикл проверки.
+				 */
 				do {
-				int result = JOptionPane.showConfirmDialog(null, myPanel,
+				int result = JOptionPane.showConfirmDialog(null, signInPanel,
 						"Введите логин и пароль", JOptionPane.OK_CANCEL_OPTION);
 				if (result == JOptionPane.OK_OPTION) { 
-					if((Login.getText().equals(Log))&((Arrays.equals(Password.getPassword(),Pass)))) {
+					if((loginField.getText().equals(login))&((Arrays.equals(passwordField.getPassword(),password)))) {
 						AdminForm form = new AdminForm();
 						dispose();
 						form.setVisible(true);
@@ -85,8 +101,8 @@ public class UserChoose extends CalcMain{
 					}
 					else{
 						JOptionPane.showMessageDialog(null,"Попробуйте снова" ,"Логин или пароль введены неверно", JOptionPane.WARNING_MESSAGE);
-						Login.setText(null);
-						Password.setText(null);
+						loginField.setText(null);
+						passwordField.setText(null);
 					} 
 				}
 				else { check=true;}
