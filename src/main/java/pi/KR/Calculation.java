@@ -125,7 +125,6 @@ public class Calculation {
 		    	  if (j==t*12) sb.append("Summ at the"+";"+"end of deposit"+";"+(df.format((p*i*t*365)/(k*100))));
 		      }}
 		      writer.write(sb.toString());
-
 		    } catch (FileNotFoundException f) {
 		      System.out.println(f.getMessage());
 		    }
