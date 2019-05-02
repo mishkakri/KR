@@ -1,5 +1,6 @@
 package pi.KR;
 
+import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,7 @@ public class AdminForm extends CalcMain{
 	private int paneCount;
 	private static JTextField[] pane= new JTextField[3];
 	private static JButton[] btn= new JButton[3];
-	private static JLabel[] label= new JLabel[3];
+	private static JLabel[] label= new JLabel[4];
 	public static JCheckBox kapital= new JCheckBox();
 	
 	/**
@@ -42,7 +43,7 @@ public class AdminForm extends CalcMain{
 		setSize(400,400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setLayout(new GridLayout(5,2));
+		setLayout(new GridLayout(6,2));
 		/**
 		 * @param pane[0] - поле ввода суммы вклада
 		 * @param label[0] - текстовое поле, поясняющее поле ввода pane[0] 
@@ -65,6 +66,7 @@ public class AdminForm extends CalcMain{
 		add(label[2] = new JLabel("Срок (год)"));
 		add(kapital = new JCheckBox("Начисление капитализации"));
 		kapital.setToolTipText("Автоматическое присоединение суммы процентов ко вкладу");
+		add(label[3] = new JLabel());
 		/**
 		 * @param btn[0] - кнопка, в результате которой выполняються расчёты, исходя изз данных
 		 * введённых в поля pane.
@@ -194,7 +196,11 @@ public class AdminForm extends CalcMain{
 		/**
 		 * @param btn[2] - кнопка, осуществялющая переход на окно выбора пользователя UserChoose
 		 */
-		add(btn[2] = new JButton("Сменить пользователя"));
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx=6;
+		c.gridy=0;
+		c.gridwidth = 2;
+   		add(btn[2] = new JButton("Сменить пользователя"));
 		btn[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 UserChoose window = new UserChoose();
