@@ -27,10 +27,9 @@ public class Calculation {
 	 */
 	public static String kapitalOn(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
-		double j, sum = 0;
-		int n = t*12;
-		j=(t*k)/n;
-		sum=p*Math.pow((1+(i*j)/(100*k)),n);
+		double n = t*12;
+		double j=(t*k)/n;
+		double sum=p*Math.pow((1+(i*j)/(100*k)),n);
 		return df.format(sum);
 	}
 	
@@ -47,10 +46,9 @@ public class Calculation {
 	 */
 	public static String kapitalOnSum(double p,double i, int t) {
 		df.setRoundingMode(RoundingMode.FLOOR);
-		double j, sumP=0;
-		int n=t*12;
-		j=(t*k)/n;
-		sumP=p*Math.pow((1+(i*j)/(100*k)),n)-p;
+		double n=t*12;
+		double j=(t*k)/n;
+		double sumP=p*Math.pow((1+(i*j)/(100*k)),n)-p;
 		return df.format(sumP);
 	}
 	
@@ -108,7 +106,7 @@ public class Calculation {
 		      StringBuilder sb = new StringBuilder();
 		      sb.append("Month ;% sum ;sum");
 		      sb.append('\n');
-		      int n=t*12;
+		      double n=t*12;
 		      double f=(t*k)/n;
 		      double p1=p;
 		    if (AdminForm.kapital.isSelected()) {
