@@ -196,10 +196,6 @@ public class AdminForm extends CalcMain{
 		/**
 		 * @param btn[2] - кнопка, осуществялющая переход на окно выбора пользователя UserChoose
 		 */
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridx=6;
-		c.gridy=0;
-		c.gridwidth = 2;
    		add(btn[2] = new JButton("Сменить пользователя"));
 		btn[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
